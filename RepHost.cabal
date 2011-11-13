@@ -2,7 +2,7 @@
 -- see
 -- http://www.haskell.org/cabal/release/cabal-latest/doc/users-guide/authors.html#pkg-descr.
 -- The name of the package.
-Name:                Print
+Name:                RepHost
 
 -- The package version. See the Haskell package versioning policy
 -- (http://www.haskell.org/haskellwiki/Package_versioning_policy) for
@@ -10,7 +10,7 @@ Name:                Print
 Version:             0.1
 
 -- A short (one-line) description of the package.
-Synopsis:            A simple print front-end for G-code driven devices
+Synopsis:            A simple print front-end for RepRap and other G-code driven devices
 
 -- A longer description of the package.
 -- Description:         
@@ -43,9 +43,9 @@ Build-type:          Simple
 Cabal-version:       >=1.2
 
 
-Executable Print
+Executable RepHost
   -- .hs or .lhs file containing the Main module.
-  Main-is:           Print.hs
+  Main-is:           RepHost
   
   -- Packages needed in order to build this package.
   Build-depends:     base, text, serialport, cmdargs, haskeline, unix, directory, mtl, split
