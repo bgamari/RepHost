@@ -31,6 +31,7 @@ strip = reverse . dropWhile isSpace . reverse . dropWhile isSpace
 type Cmd = T.Text
 filterCmd :: Cmd -> Maybe Cmd
 filterCmd c
+        | T.null c = Nothing
         | not $ isAlpha (T.head c) = Nothing
         | otherwise = Just $ T.strip $ T.takeWhile (/=';') c
 
