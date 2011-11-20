@@ -23,6 +23,7 @@ data Reply = Temperature [(Char,Double)]
            | Resend Integer
            | Fault
            | Error String
+           | Unknown String
            deriving (Show, Eq)
 
 strip :: String -> String
@@ -64,6 +65,7 @@ recvReply port =
                 _ | "rs" `isPrefixOf` reply    -> return $ Resend (read $ drop 3 reply)
                 _ | "!!" `isPrefixOf` reply    -> return $ Fault
                 _ | "ok" `isPrefixOf` reply    -> return $ OK $ drop 3 reply
+                otherwise                      -> return $ Unknown reply
 
 sendCmds :: SerialPort -> [Cmd] -> IO ()
 sendCmds port cmds =
